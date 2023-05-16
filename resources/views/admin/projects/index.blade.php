@@ -6,7 +6,6 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header h4">{{ __('My projects:') }}</div>
-
                     <div class="card-body">
                         <table class="table">
                             <thead>
@@ -20,8 +19,8 @@
                                         <th class="align-middle" scope="row">{{ $project->id }}</th>
                                         <td class="align-middle">{{ $project->title }}</td>
                                         <td class="align-middle  d-flex justify-content-end align-items-center gap-3">
-                                            @include('partials.editZone')
-                                            <a href="/">
+                                            @include('admin.projects.partials.editZone')
+                                            <a href="{{ route('admin.projects.show', $project->id) }}">
                                                 @include('partials.svg.show')
                                             </a>
                                         </td>
