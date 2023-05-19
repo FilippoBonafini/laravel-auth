@@ -5,7 +5,12 @@
         <div class="pt-5 row justify-content-center">
             <div class="col">
                 <div class="card">
-                    <div class="card-header h4">{{ __('My projects:') }}</div>
+                    <div class="card-header h4 d-flex align-items-center justify-content-between">
+                        {{ __('My projects:') }}
+                        <a href="{{ route('admin.projects.create') }}">
+                            @include ('partials.svg.add')
+                        </a>
+                    </div>
                     <div class="card-body">
                         <table class="table">
                             <thead>

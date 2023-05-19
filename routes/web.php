@@ -28,7 +28,6 @@ Route::middleware('auth', 'verified')->prefix('admin')->name('admin.')->group(fu
     // ROTTA CHE PORTA ALLA VISUALIZZAZIONE DELLA DASHBOARD (GESTITA DA UN CONTROLLER)
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-
     Route::resource('projects', AdminProjectController::class);
 
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

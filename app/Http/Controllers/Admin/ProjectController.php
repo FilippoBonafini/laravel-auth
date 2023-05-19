@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -38,14 +39,13 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //salvo dati in arrivo dal form
-        $data = $request->all();
-        $newProject = new Project();
+        $data = $request->validated();
+        $project = new Project();
+        $project->slug =  Str::slug($data['title']);
+        $project->fill($data);
+        $project->save();
 
-        //salvataggio in tabella
-        $newProject->fill($data);
-        $newProject->save();
-        return to_route('admin.projects.show');
+        return redirect()->route('admin.projects.index')->with('message', 'Post creato con successo');
     }
 
     /**
