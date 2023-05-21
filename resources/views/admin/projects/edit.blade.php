@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" class="container" id="save-form">
+    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" class="container" id="save-form"
+        enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="pt-5 row justify-content-center">
@@ -28,6 +29,9 @@
                         <h5>Project link:</h5>
                         <input type="text" class="form-control" id="link" name="link"
                             value="{{ old('link', $project->link) }}">
+                        <h5 class="mt-3">Immagine:</h5>
+                        <input type="file" class="form-control" id="image" name="image">
+
                     </div>
                 </div>
             </div>

@@ -14,6 +14,7 @@
                         <p>{{ $project->description }}</p>
                         <h5>Project link:</h5>
                         <a href="#">{{ $project->link }}</a>
+                        <img class="d-block" src="{{ asset('storage/' . $project->image) }}" alt="">
                     </div>
                 </div>
             </div>

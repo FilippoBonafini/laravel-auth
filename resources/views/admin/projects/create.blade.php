@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('admin.projects.store') }}" method="POST" class="container" id="save-form">
+    <form action="{{ route('admin.projects.store') }}" method="POST" class="container" id="save-form"
+        enctype="multipart/form-data">
         @csrf
         <div class="pt-5 row justify-content-center">
             <div class="col">
@@ -26,6 +27,8 @@
                         <h5>Project link:</h5>
                         <input type="text" class="form-control" id="link" name="link"
                             value="{{ old('link') }}">
+                        <h5 class="pt-3">Immagine:</h5>
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
                 </div>
             </div>
