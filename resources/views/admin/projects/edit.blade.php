@@ -29,10 +29,23 @@
                         <h5>Project link:</h5>
                         <input type="text" class="form-control" id="link" name="link"
                             value="{{ old('link', $project->link) }}">
-                        <h5 class="mt-3">Immagine:</h5>
-                        <input type="file" class="form-control" id="image" name="image">
+
+                        <div class="form-check form-switch pt-4">
+                            <input type="checkbox" name="set_image" value="1" class="form-check-input" role="switch"
+                                id="set_image" @if ($project->image) checked @endif>
+                            <label for="set_image" class="form-check-label">Immagine</label>
+                        </div>
+                        <div id="image_input_container">
+                            <h5 class="mt-3">Immagine:</h5>
+                            <input type="file" class="form-control" id="image" name="image">
+                            <div class="preview pt-3">
+                                <img class="d-block" id="file-image-preview"
+                                    @if ($project->image) src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" @endif>
+                            </div>
+                        </div>
 
                     </div>
+
                 </div>
             </div>
         </div>

@@ -90,6 +90,27 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         $project->slug =  Str::slug($data['title']);
+
+
+
+        if (empty($data['set_image'])) {
+            if ($project->image) {
+                Storage::delete($project->image);
+                $project->image = null;
+            }
+        } else {
+            if (isset($data['image'])) {
+
+                if ($project->image) {
+                    Storage::delete($project->image);
+                }
+
+                $project->image = Storage::put('uploads', $data['image']);
+            }
+        }
+
+
+
         $project->update($data);
         return redirect()->route('admin.projects.index', $project->id);
     }
@@ -102,6 +123,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->image) {
+            Storage::delete($project->image);
+        }
+
         $project->delete();
         return redirect()->route('admin.projects.index');
     }

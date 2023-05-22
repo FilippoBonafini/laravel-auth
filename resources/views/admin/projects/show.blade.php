@@ -12,9 +12,22 @@
                     <div class="card-body">
                         <h5>Description:</h5>
                         <p>{{ $project->description }}</p>
+
                         <h5>Project link:</h5>
                         <a href="#">{{ $project->link }}</a>
-                        <img class="d-block" src="{{ asset('storage/' . $project->image) }}" alt="">
+
+                        @if ($project->image)
+                            <div class="preview">
+                                <img id="file-image-preview" class="pt-3 d-block"
+                                    src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+                            </div>
+                        @endif
+
+
+                        {{-- @if ($element->prova_id)
+                            {{$element->tableB->name}}
+                        @endif --}}
+
                     </div>
                 </div>
             </div>

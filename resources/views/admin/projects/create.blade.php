@@ -27,8 +27,24 @@
                         <h5>Project link:</h5>
                         <input type="text" class="form-control" id="link" name="link"
                             value="{{ old('link') }}">
+
+                        <h5 class="pt-3">Select</h5>
+
+                        <select name="name_id" class="form-select">
+                            <option value="" selected>Select:</option>
+                            {{-- @foreach ($collection as $item)
+                                <option value="{{ $item->id }}"{{old('item_id') == $item->id ? 'selected' : ''}} >{{ $item->name }}</option>
+                            @endforeach --}}
+                        </select>
+
                         <h5 class="pt-3">Immagine:</h5>
                         <input type="file" class="form-control" id="image" name="image">
+
+                        {{-- anteprima immagine upload  --}}
+
+                        <div class="preview pt-3">
+                            <img id="file-image-preview">
+                        </div>
                     </div>
                 </div>
             </div>

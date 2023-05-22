@@ -27,7 +27,8 @@ class StoreProjectRequest extends FormRequest
             'title' => 'required',
             'description' => 'nullable|string',
             'link' => 'required|string',
-            'image' => 'nullable|image|max:2048'
+            'image' => 'nullable|image|max:2048',
+            // 'onso_id' => 'nullable|exist:tabellaB,id'
         ];
     }
 }

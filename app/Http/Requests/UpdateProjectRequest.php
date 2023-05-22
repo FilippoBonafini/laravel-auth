@@ -28,7 +28,9 @@ class UpdateProjectRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'nullable | string',
-            'link' => 'required'
+            'link' => 'required',
+            'image' => 'nullable|image|max:2048',
+            'set_image' => 'boolean'
         ];
     }
 }
