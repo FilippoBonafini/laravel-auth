@@ -4,6 +4,11 @@
     <div class="container">
         <div class="pt-5 row justify-content-center">
             <div class="col">
+                @if (session('message'))
+                    <div class="alert alert-info mb-4" role="alert">
+                        {{ session('message') }}
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-header h4 d-flex align-items-center justify-content-between">
                         {{ __('My projects:') }}

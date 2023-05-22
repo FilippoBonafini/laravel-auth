@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('admin.home');
+    return view('home');
 });
 
 Route::middleware('auth', 'verified')->prefix('admin')->name('admin.')->group(function () {

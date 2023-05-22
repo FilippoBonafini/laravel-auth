@@ -9,6 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return redirect('admin/projects');
+        return view('admin.dashboard');
     }
 }
