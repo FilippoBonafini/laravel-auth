@@ -6,9 +6,19 @@
         @csrf
         <div class="pt-5 row justify-content-center">
             <div class="col">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-header d-flex gap-3 align-items-center justify-content-between">
-                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
+                        <input type="text" class="form-control" id="title" name="title"
+                            value="{{ old('title') }}">
 
 
                         <a class="btn btn-success btn-sm"
